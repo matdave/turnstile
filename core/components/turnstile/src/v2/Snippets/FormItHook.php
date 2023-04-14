@@ -33,7 +33,12 @@ class FormItHook extends Snippet
                 'remoteip' => $ip
             ]
         );
-        if (!isset($verify['response']['success']) || !$verify['response']['success']) {
+        if (!isset($verify['result']->success) || !$verify['result']->success) {
+            if (isset($verify['result']->{'error-codes'})) {
+                $hook->addError('cf-turnstile-response', implode(', ', $verify['result']->{'error-codes'}));
+            } else {
+                $hook->addError('cf-turnstile-response', $verify['error']);
+            }
             return false;
         }
 

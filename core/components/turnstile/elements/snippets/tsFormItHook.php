@@ -4,6 +4,12 @@
  * @var \modX $modx
  * @var array $scriptProperties
  */
+$corePath = $modx->getOption(
+    'turnstile.core_path',
+    [],
+    $modx->getOption('core_path', null, MODX_CORE_PATH) . 'components/turnstile/'
+);
+require_once($corePath.'vendor/autoload.php');
 $version = 2;
 $v = 'v2';
 if (!isset($modx->version)) {
@@ -12,17 +18,7 @@ if (!isset($modx->version)) {
 if (isset($this->modx->version['version'])) {
     $version = (int) $this->modx->version['version'];
 }
-if ($version < 3) {
-    $turnstile = $modx->getService(
-        'turnstile',
-        'Turnstile',
-        $modx->getOption(
-            'turnstile.core_path',
-            null,
-            $modx->getOption('core_path') . 'components/turnstile/'
-        ) . 'model/turnstile/'
-    );
-}else {
+if ($version > 2) {
     $v = "v3";
 }
 
