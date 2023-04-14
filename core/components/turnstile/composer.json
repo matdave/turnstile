@@ -1,0 +1,16 @@
+{
+    "name": "matdave/turnstile",
+    "description": "Turnstile Integration for MODX",
+    "autoload": {
+        "psr-4": {
+            "Turnstile\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "matdave",
+            "email": "mat@matdave.com"
+        }
+    ],
+    "require": {}
+}

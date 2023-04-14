@@ -1,0 +1,35 @@
+{
+  "name": "Turnstile",
+  "lowCaseName": "turnstile",
+  "description": "Turnstile Hook for MODX FormIt",
+  "author": "matdave",
+  "version": "0.0.1-pl",
+  "package": {
+    "elements": {
+      "chunks": [
+        {
+          "name": "tsRender",
+          "file": "render.chunk.tpl"
+        }
+      ],
+      "snippets": [
+        {
+          "name": "tsFormItHook",
+          "file": "tsFormItHook.php"
+        },{
+          "name": "tsRender",
+          "file": "tsRender.php"
+        }
+      ]
+    },
+    "systemSettings": [
+      {
+        "key": "sitekey"
+      },
+      {
+        "key": "secretkey",
+        "type": "text-password"
+      }
+    ]
+  }
+}
