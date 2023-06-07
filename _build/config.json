@@ -3,7 +3,7 @@
   "lowCaseName": "turnstile",
   "description": "Turnstile Hook for MODX FormIt",
   "author": "matdave",
-  "version": "0.0.1-pl",
+  "version": "0.0.2-pl",
   "package": {
     "elements": {
       "chunks": [
