@@ -1,1 +1,3 @@
-initial release
+1.0.0-pl
+====================
+- Fix issues with PHP < 8

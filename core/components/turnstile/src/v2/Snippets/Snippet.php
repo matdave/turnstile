@@ -32,17 +32,17 @@ abstract class Snippet
         return $this->modx->getOption($key, $this->sp, $default, $skipEmpty);
     }
 
-    protected function debug(string $msg, mixed $data = null): void
+    protected function debug(string $msg, $data = null): void
     {
         if (!$this->debug) {
             return;
         }
 
-        $formattedData = match (gettype($data)) {
-            'NULL' => null,
-            'array', 'object' => '<pre>' . print_r($data, true) . '</pre>',
-            default => $data,
-        };
+        if (is_array($data) || is_object($data)) {
+            $formattedData = '<pre>' . print_r($data, true) . '</pre>';
+        } else {
+            $formattedData = $data;
+        }
 
         echo "[" . Snippet::class . "]: " . $msg . ' ' . $formattedData . '<br />';
     }
